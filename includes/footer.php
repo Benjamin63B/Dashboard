@@ -19,7 +19,7 @@
     ?>
     <footer class="footer">
         <div class="footer-content">
-            <p>&copy; <?php echo date('Y'); ?> <?php echo htmlspecialchars($project_name); ?> - <a href="https://github.com" target="_blank" rel="noopener noreferrer">Open Source</a></p>
+            <p>&copy; <?php echo date('Y'); ?> <?php echo htmlspecialchars($project_name); ?> - <a href="https://github.com/Benjamin63B/Dashboard" target="_blank" rel="noopener noreferrer">Open Source</a></p>
         </div>
     </footer>
 

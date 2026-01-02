@@ -1,0 +1,130 @@
+<?php
+/**
+ * Deutsche Übersetzungen
+ */
+
+return [
+    // Allgemein
+    'dashboard' => 'Dashboard',
+    'welcome' => 'Willkommen',
+    'logout' => 'Abmelden',
+    'settings' => 'Einstellungen',
+    'save' => 'Speichern',
+    'cancel' => 'Abbrechen',
+    'delete' => 'Löschen',
+    'edit' => 'Bearbeiten',
+    'view' => 'Ansehen',
+    'add' => 'Hinzufügen',
+    'search' => 'Suchen',
+    'filter' => 'Filtern',
+    'actions' => 'Aktionen',
+    'status' => 'Status',
+    'date' => 'Datum',
+    'amount' => 'Betrag',
+    'total' => 'Gesamt',
+    'client' => 'Kunde',
+    'clients' => 'Kunden',
+    'invoice' => 'Rechnung',
+    'invoices' => 'Rechnungen',
+    'payment' => 'Zahlung',
+    'payments' => 'Zahlungen',
+    
+    // Dashboard
+    'revenue' => 'Umsatz',
+    'month_revenue' => 'Umsatz diesen Monat',
+    'active_clients' => 'Aktive Kunden',
+    'pending_invoices' => 'Ausstehende Rechnungen',
+    'recent_invoices' => 'Letzte Rechnungen',
+    'monthly_revenue' => 'Monatlicher Umsatz',
+    'see_all' => 'Alle anzeigen',
+    'to_process' => 'Zu bearbeiten',
+    'of' => 'von',
+    
+    // Clients
+    'add_client' => 'Kunde hinzufügen',
+    'client_name' => 'Kundenname',
+    'client_email' => 'E-Mail',
+    'client_phone' => 'Telefon',
+    'client_company' => 'Unternehmen',
+    'client_address' => 'Adresse',
+    'client_notes' => 'Notizen',
+    'no_clients' => 'Keine Kunden',
+    
+    // Invoices
+    'create_invoice' => 'Rechnung erstellen',
+    'invoice_number' => 'Rechnungsnummer',
+    'invoice_title' => 'Titel',
+    'invoice_description' => 'Beschreibung',
+    'invoice_amount' => 'Betrag (ohne MwSt.)',
+    'tax_rate' => 'MwSt.-Satz',
+    'tax_amount' => 'MwSt.-Betrag',
+    'total_amount' => 'Gesamtbetrag (inkl. MwSt.)',
+    'issue_date' => 'Ausstellungsdatum',
+    'due_date' => 'Fälligkeitsdatum',
+    'paid_date' => 'Zahlungsdatum',
+    'no_invoices' => 'Keine Rechnungen',
+    'draft' => 'Entwurf',
+    'sent' => 'Gesendet',
+    'paid' => 'Bezahlt',
+    'overdue' => 'Überfällig',
+    'cancelled' => 'Storniert',
+    
+    // Payments
+    'record_payment' => 'Zahlung erfassen',
+    'payment_method' => 'Zahlungsmethode',
+    'payment_date' => 'Zahlungsdatum',
+    'transaction_id' => 'Transaktions-ID',
+    'payment_notes' => 'Notizen',
+    'no_payments' => 'Keine Zahlungen',
+    'pending' => 'Ausstehend',
+    'completed' => 'Abgeschlossen',
+    'failed' => 'Fehlgeschlagen',
+    'refunded' => 'Erstattet',
+    
+    // Settings
+    'project_settings' => 'Projekteinstellungen',
+    'project_name' => 'Projektname',
+    'project_favicon' => 'Projekt-Favicon',
+    'project_theme_color' => 'Theme-Farbe',
+    'project_language' => 'Sprache',
+    'company_info' => 'Unternehmensinformationen',
+    'company_name' => 'Firmenname',
+    'company_address' => 'Adresse',
+    'company_city' => 'Stadt',
+    'company_postal' => 'Postleitzahl',
+    'company_country' => 'Land',
+    'company_phone' => 'Telefon',
+    'company_email' => 'E-Mail',
+    'company_siret' => 'SIRET/SIREN',
+    'company_website' => 'Website',
+    'payment_integrations' => 'Zahlungsintegrationen',
+    'stripe_settings' => 'Stripe-Einstellungen',
+    'paypal_settings' => 'PayPal-Einstellungen',
+    'settings_updated' => 'Einstellungen erfolgreich aktualisiert!',
+    
+    // Authentication
+    'login' => 'Anmelden',
+    'register' => 'Registrieren',
+    'username' => 'Benutzername',
+    'password' => 'Passwort',
+    'email' => 'E-Mail',
+    'full_name' => 'Vollständiger Name',
+    'login_button' => 'Anmelden',
+    'register_button' => 'Konto erstellen',
+    'no_account' => 'Noch kein Konto?',
+    'have_account' => 'Bereits ein Konto?',
+    
+    // Messages
+    'success' => 'Erfolg',
+    'error' => 'Fehler',
+    'warning' => 'Warnung',
+    'info' => 'Information',
+    'confirm_delete' => 'Sind Sie sicher, dass Sie dieses Element löschen möchten?',
+    
+    // Available languages
+    'language_french' => 'Français',
+    'language_english' => 'English',
+    'language_spanish' => 'Español',
+    'language_german' => 'Deutsch',
+];
+

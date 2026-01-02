@@ -8,6 +8,7 @@ requireLogin();
 
 $user = getCurrentUser();
 require_once 'includes/database.php';
+require_once 'includes/language.php';
 
 $page_title = 'Paramètres';
 $error = '';
@@ -38,7 +39,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $project_name = trim($_POST['project_name'] ?? '');
             $project_favicon = trim($_POST['project_favicon'] ?? '📊');
             $project_theme_color = trim($_POST['project_theme_color'] ?? '#4f46e5');
+            $project_language = trim($_POST['project_language'] ?? 'fr');
             $company_name = trim($_POST['company_name'] ?? '');
+            
+            // Valider la langue
+            $available_languages = ['fr', 'en', 'es', 'de'];
+            if (!in_array($project_language, $available_languages)) {
+                $project_language = 'fr';
+            }
             
             // Valider la couleur hexadécimale
             if (!empty($project_theme_color) && !preg_match('/^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$/', $project_theme_color)) {
@@ -68,6 +76,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 'project_name' => $project_name,
                 'project_favicon' => $project_favicon,
                 'project_theme_color' => $project_theme_color,
+                'project_language' => $project_language,
                 'company_name' => $company_name,
                 'company_address' => $company_address,
                 'company_city' => $company_city,
@@ -215,6 +224,27 @@ require_once 'includes/header.php';
                                style="flex: 1; margin-left: 1rem;">
                     </div>
                     <small>Couleur principale du thème de votre application (utilisée pour les boutons, liens, etc.)</small>
+                </div>
+                
+                <div class="form-group">
+                    <label for="project_language">Langue de l'application</label>
+                    <select id="project_language" name="project_language" required>
+                        <?php
+                        $languages = [
+                            'fr' => 'Français',
+                            'en' => 'English',
+                            'es' => 'Español',
+                            'de' => 'Deutsch'
+                        ];
+                        $current_lang = getSetting('project_language', 'fr');
+                        foreach ($languages as $code => $name):
+                        ?>
+                            <option value="<?php echo $code; ?>" <?php echo $current_lang === $code ? 'selected' : ''; ?>>
+                                <?php echo htmlspecialchars($name); ?>
+                            </option>
+                        <?php endforeach; ?>
+                    </select>
+                    <small>Langue utilisée dans l'interface de l'application</small>
                 </div>
                 
                 <div class="form-group">

@@ -53,6 +53,14 @@ Ouvrez `includes/footer.php` et remplacez le lien GitHub :
 
 Votre projet est maintenant sur GitHub ! 🎉
 
+## 📝 Fichiers importants
+
+- `README.md` - Documentation principale
+- `CONTRIBUTING.md` - Guide pour les contributeurs
+- `CHANGELOG.md` - Historique des modifications
+- `LICENSE` - Licence MIT
+- `.gitignore` - Fichiers à exclure de Git
+
 ---
 
 **Besoin d'aide ?** Consultez `GITHUB_SETUP.md` pour un guide détaillé.

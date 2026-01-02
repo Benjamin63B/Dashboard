@@ -1,7 +1,10 @@
 <?php
 if (!isset($user)) {
+    require_once __DIR__ . '/auth.php';
     $user = getCurrentUser();
 }
+require_once __DIR__ . '/database.php';
+require_once __DIR__ . '/language.php';
 ?>
 <!DOCTYPE html>
 <html lang="fr">

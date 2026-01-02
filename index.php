@@ -8,6 +8,7 @@ requireLogin();
 
 $user = getCurrentUser();
 require_once 'includes/database.php';
+require_once 'includes/language.php';
 
 // Statistiques
 $current_month = date('Y-m');
@@ -53,8 +54,8 @@ require_once 'includes/header.php';
 
 <main class="dashboard-main">
     <div class="dashboard-header">
-        <h1>Dashboard</h1>
-        <p class="welcome-text">Bienvenue, <?php echo htmlspecialchars($user['username']); ?> !</p>
+        <h1><?php echo __('dashboard'); ?></h1>
+        <p class="welcome-text"><?php echo __('welcome'); ?>, <?php echo htmlspecialchars($user['username']); ?> !</p>
     </div>
 
     <div class="stats-grid">

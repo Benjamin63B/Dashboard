@@ -13,6 +13,8 @@ Un dashboard complet et open source pour gérer vos revenus, factures, clients e
 - 📱 **Responsive** : Interface moderne et adaptée à tous les écrans
 - 🎨 **Personnalisation** : Personnalisez le nom du projet, le favicon et la couleur du thème
 - 🔧 **Installation guidée** : Installation en 3 étapes avec assistant visuel
+- 🌍 **Multi-langues** : Support de 4 langues (Français, English, Español, Deutsch)
+- 🎨 **Personnalisation complète** : Nom du projet, favicon, couleur du thème
 - 🔒 **Sécurisé** : Authentification et protection des données
 
 ## 📋 Prérequis
@@ -93,8 +95,25 @@ dashboard-freelance/
 ├── payments.php               # Gestion des paiements
 ├── settings.php               # Paramètres (Stripe, PayPal, personnalisation)
 ├── logout.php                 # Déconnexion
+├── lang/                      # Fichiers de traduction
+│   ├── fr.php                 # Français
+│   ├── en.php                 # Anglais
+│   ├── es.php                 # Espagnol
+│   └── de.php                 # Allemand
+├── includes/
+│   ├── language.php           # Système de gestion des langues
+│   ├── auth.php               # Fonctions d'authentification
+│   ├── database.php           # Connexion à la base de données
+│   ├── header.php             # En-tête des pages
+│   ├── footer.php             # Pied de page
+│   ├── stripe.php             # Intégration Stripe
+│   └── paypal.php             # Intégration PayPal
 ├── config.php                 # Configuration (généré automatiquement)
-└── README.md                  # Ce fichier
+├── config.php.example         # Exemple de configuration
+├── README.md                  # Documentation principale
+├── CONTRIBUTING.md            # Guide de contribution
+├── CHANGELOG.md               # Historique des modifications
+└── LICENSE                    # Licence MIT
 ```
 
 ## 🔧 Configuration
@@ -167,6 +186,40 @@ Le dashboard affiche automatiquement :
 3. Personnalisez le nom du projet
 4. Choisissez un favicon parmi les emojis proposés
 5. Sélectionnez la couleur du thème
+6. Choisissez la langue de l'interface (Français, English, Español, Deutsch)
+
+### Changer la langue
+
+1. Allez dans **Paramètres** > **Informations de l'entreprise**
+2. Sélectionnez la langue souhaitée dans le menu déroulant "Langue de l'application"
+3. Enregistrez les modifications
+4. L'interface se met à jour automatiquement dans la langue choisie
+
+## 🌐 Support multi-langues
+
+L'application supporte actuellement **4 langues** :
+- 🇫🇷 **Français** (par défaut)
+- 🇬🇧 **English**
+- 🇪🇸 **Español**
+- 🇩🇪 **Deutsch**
+
+### Utilisation des traductions dans le code
+
+Dans vos fichiers PHP, utilisez la fonction `__()` pour traduire :
+
+```php
+<?php echo __('dashboard'); ?>     // Affiche "Dashboard" ou "Panel de control" selon la langue
+<?php echo __('welcome'); ?>       // Affiche "Bienvenue" ou "Welcome"
+<?php echo __('settings'); ?>      // Affiche "Paramètres" ou "Settings"
+```
+
+### Ajouter une nouvelle langue
+
+1. Créez un nouveau fichier dans `lang/` (ex: `it.php` pour l'italien)
+2. Copiez la structure d'un fichier existant (ex: `fr.php`)
+3. Traduisez toutes les clés
+4. Ajoutez la langue dans `includes/language.php` dans la fonction `getAvailableLanguages()`
+5. Ajoutez l'option dans le formulaire de paramètres (`settings.php`)
 
 ## 🔒 Sécurité
 
@@ -175,12 +228,6 @@ Le dashboard affiche automatiquement :
 - Authentification par session
 - Protection CSRF recommandée (à implémenter si nécessaire)
 - Validation des entrées utilisateur
-
-## 🌐 Support multi-langues
-
-L'application est actuellement en français. Pour ajouter d'autres langues :
-1. Créez des fichiers de traduction dans `lang/`
-2. Modifiez les fichiers PHP pour utiliser les traductions
 
 ## 🤝 Contribution
 
@@ -191,7 +238,13 @@ Les contributions sont les bienvenues ! N'hésitez pas à :
 
 ## 📝 Licence
 
-Ce projet est open source et disponible sous licence MIT. Vous êtes libre de l'utiliser, le modifier et le distribuer.
+Ce projet est open source et disponible sous licence **MIT**. Voir le fichier [LICENSE](LICENSE) pour plus de détails.
+
+Vous êtes libre de :
+- ✅ Utiliser le projet
+- ✅ Le modifier
+- ✅ Le distribuer
+- ✅ L'utiliser commercialement
 
 ## 🐛 Résolution de problèmes
 
@@ -229,5 +282,16 @@ Pour toute question ou problème, ouvrez une issue sur GitHub.
 
 ---
 
+## 📚 Documentation
+
+- [README.md](README.md) - Documentation principale
+- [CONTRIBUTING.md](CONTRIBUTING.md) - Guide pour les contributeurs
+- [CHANGELOG.md](CHANGELOG.md) - Historique des modifications
+- [QUICK_START.md](QUICK_START.md) - Guide de démarrage rapide pour GitHub
+
+---
+
 **Développé avec ❤️ pour la communauté des créateurs et freelances**
+
+⭐ Si ce projet vous est utile, n'hésitez pas à lui donner une étoile sur GitHub !
 

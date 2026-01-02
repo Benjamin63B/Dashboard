@@ -1,0 +1,130 @@
+<?php
+/**
+ * English translations
+ */
+
+return [
+    // General
+    'dashboard' => 'Dashboard',
+    'welcome' => 'Welcome',
+    'logout' => 'Logout',
+    'settings' => 'Settings',
+    'save' => 'Save',
+    'cancel' => 'Cancel',
+    'delete' => 'Delete',
+    'edit' => 'Edit',
+    'view' => 'View',
+    'add' => 'Add',
+    'search' => 'Search',
+    'filter' => 'Filter',
+    'actions' => 'Actions',
+    'status' => 'Status',
+    'date' => 'Date',
+    'amount' => 'Amount',
+    'total' => 'Total',
+    'client' => 'Client',
+    'clients' => 'Clients',
+    'invoice' => 'Invoice',
+    'invoices' => 'Invoices',
+    'payment' => 'Payment',
+    'payments' => 'Payments',
+    
+    // Dashboard
+    'revenue' => 'Revenue',
+    'month_revenue' => 'This month\'s revenue',
+    'active_clients' => 'Active clients',
+    'pending_invoices' => 'Pending invoices',
+    'recent_invoices' => 'Recent invoices',
+    'monthly_revenue' => 'Monthly revenue',
+    'see_all' => 'See all',
+    'to_process' => 'To process',
+    'of' => 'of',
+    
+    // Clients
+    'add_client' => 'Add client',
+    'client_name' => 'Client name',
+    'client_email' => 'Email',
+    'client_phone' => 'Phone',
+    'client_company' => 'Company',
+    'client_address' => 'Address',
+    'client_notes' => 'Notes',
+    'no_clients' => 'No clients',
+    
+    // Invoices
+    'create_invoice' => 'Create invoice',
+    'invoice_number' => 'Invoice number',
+    'invoice_title' => 'Title',
+    'invoice_description' => 'Description',
+    'invoice_amount' => 'Amount (excl. tax)',
+    'tax_rate' => 'Tax rate',
+    'tax_amount' => 'Tax amount',
+    'total_amount' => 'Total amount (incl. tax)',
+    'issue_date' => 'Issue date',
+    'due_date' => 'Due date',
+    'paid_date' => 'Payment date',
+    'no_invoices' => 'No invoices',
+    'draft' => 'Draft',
+    'sent' => 'Sent',
+    'paid' => 'Paid',
+    'overdue' => 'Overdue',
+    'cancelled' => 'Cancelled',
+    
+    // Payments
+    'record_payment' => 'Record payment',
+    'payment_method' => 'Payment method',
+    'payment_date' => 'Payment date',
+    'transaction_id' => 'Transaction ID',
+    'payment_notes' => 'Notes',
+    'no_payments' => 'No payments',
+    'pending' => 'Pending',
+    'completed' => 'Completed',
+    'failed' => 'Failed',
+    'refunded' => 'Refunded',
+    
+    // Settings
+    'project_settings' => 'Project settings',
+    'project_name' => 'Project name',
+    'project_favicon' => 'Project favicon',
+    'project_theme_color' => 'Theme color',
+    'project_language' => 'Language',
+    'company_info' => 'Company information',
+    'company_name' => 'Company name',
+    'company_address' => 'Address',
+    'company_city' => 'City',
+    'company_postal' => 'Postal code',
+    'company_country' => 'Country',
+    'company_phone' => 'Phone',
+    'company_email' => 'Email',
+    'company_siret' => 'SIRET/SIREN',
+    'company_website' => 'Website',
+    'payment_integrations' => 'Payment integrations',
+    'stripe_settings' => 'Stripe settings',
+    'paypal_settings' => 'PayPal settings',
+    'settings_updated' => 'Settings updated successfully!',
+    
+    // Authentication
+    'login' => 'Login',
+    'register' => 'Register',
+    'username' => 'Username',
+    'password' => 'Password',
+    'email' => 'Email',
+    'full_name' => 'Full name',
+    'login_button' => 'Sign in',
+    'register_button' => 'Create account',
+    'no_account' => 'Don\'t have an account?',
+    'have_account' => 'Already have an account?',
+    
+    // Messages
+    'success' => 'Success',
+    'error' => 'Error',
+    'warning' => 'Warning',
+    'info' => 'Information',
+    'confirm_delete' => 'Are you sure you want to delete this item?',
+    
+    // Available languages
+    'language_french' => 'Français',
+    'language_english' => 'English',
+    'language_spanish' => 'Español',
+    'language_german' => 'Deutsch',
+];
+

@@ -1,9 +1,11 @@
 # Configuration
 config.php
+config.php.local
 
 # Fichiers sensibles
 *.env
 .env.local
+.env.*.local
 
 # Fichiers système
 .DS_Store
