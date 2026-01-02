@@ -1,0 +1,37 @@
+# Configuration
+config.php
+
+# Fichiers sensibles
+*.env
+.env.local
+
+# Fichiers système
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+*~
+
+# IDE
+.idea/
+.vscode/
+*.sublime-project
+*.sublime-workspace
+
+# Logs
+*.log
+error_log
+
+# Temporaires
+tmp/
+temp/
+cache/
+
+# Composer (si utilisé plus tard)
+vendor/
+composer.lock
+
+# Node (si utilisé plus tard)
+node_modules/
+package-lock.json
+

@@ -1,0 +1,22 @@
+<?php
+// Exemple de fichier de configuration
+// Copiez ce fichier en config.php et modifiez les valeurs selon votre configuration
+
+// Configuration de la base de données
+define('DB_HOST', 'localhost');
+define('DB_NAME', 'dashboard_freelance');
+define('DB_USER', 'votre_utilisateur_mysql');
+define('DB_PASS', 'votre_mot_de_passe_mysql');
+define('DB_CHARSET', 'utf8mb4');
+
+// Configuration de l'application
+define('APP_NAME', 'Dashboard Freelance');
+define('APP_URL', 'http://' . $_SERVER['HTTP_HOST'] . dirname($_SERVER['SCRIPT_NAME']));
+define('TIMEZONE', 'Europe/Paris');
+
+// Configuration de sécurité
+define('SESSION_LIFETIME', 3600); // 1 heure en secondes
+
+// Configuration du fuseau horaire
+date_default_timezone_set(TIMEZONE);
+
