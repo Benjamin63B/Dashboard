@@ -10,7 +10,7 @@ $user = getCurrentUser();
 require_once 'includes/database.php';
 require_once 'includes/language.php';
 
-$page_title = 'Paramètres';
+$page_title = __('settings');
 $error = '';
 $success = '';
 
@@ -23,6 +23,16 @@ $settings_data = $stmt->fetchAll(PDO::FETCH_KEY_PAIR);
 function getSetting($key, $default = '') {
     global $settings_data;
     return $settings_data[$key] ?? $default;
+}
+
+// Recharger les traductions si la langue est définie
+if (isset($settings_data['project_language']) && !empty($settings_data['project_language'])) {
+    $current_language = $settings_data['project_language'];
+    $lang_file = __DIR__ . '/lang/' . $current_language . '.php';
+    if (file_exists($lang_file)) {
+        global $translations;
+        $translations = require $lang_file;
+    }
 }
 
 
@@ -93,7 +103,30 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 $stmt->execute([$user['id'], $key, $value, $value]);
             }
             
-            $success = 'Paramètres mis à jour avec succès !';
+            // Recharger les paramètres pour mettre à jour $settings_data
+            $stmt = $pdo->prepare("SELECT setting_key, setting_value FROM settings WHERE user_id = ?");
+            $stmt->execute([$user['id']]);
+            $settings_data = $stmt->fetchAll(PDO::FETCH_KEY_PAIR);
+            
+            // Recharger les traductions si la langue a changé
+            if (isset($company_settings['project_language'])) {
+                $current_language = $company_settings['project_language'];
+                $lang_file = __DIR__ . '/lang/' . $current_language . '.php';
+                if (file_exists($lang_file)) {
+                    global $translations;
+                    $translations = require $lang_file;
+                    // Mettre à jour la variable globale pour que getCurrentLanguage() fonctionne
+                    $GLOBALS['current_language'] = $current_language;
+                }
+            }
+            
+            $success = __('settings_updated');
+            
+            // Rediriger pour recharger la page avec la nouvelle langue
+            if (isset($company_settings['project_language'])) {
+                header('Location: settings.php?lang=' . $company_settings['project_language']);
+                exit;
+            }
             
         } elseif ($form_type === 'payment') {
             // Formulaire intégrations paiement
@@ -120,7 +153,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $stmt = $pdo->prepare("INSERT INTO settings (user_id, setting_key, setting_value) VALUES (?, 'paypal_mode', ?) ON DUPLICATE KEY UPDATE setting_value = ?");
             $stmt->execute([$user['id'], $paypal_mode, $paypal_mode]);
             
-            $success = 'Paramètres mis à jour avec succès !';
+            $success = __('settings_updated');
         }
         
         $pdo->commit();
@@ -157,24 +190,24 @@ require_once 'includes/header.php';
     <div class="settings-container">
         <!-- Informations de l'entreprise -->
         <div class="settings-section">
-            <h2>Informations de l'entreprise</h2>
+            <h2><?php echo __('company_info'); ?></h2>
             <p class="settings-description">
-                Renseignez les informations de votre entreprise.
+                <?php echo __('company_info'); ?>
             </p>
             
             <form method="POST" class="settings-form">
                 <input type="hidden" name="form_type" value="company">
                 
                 <div class="form-group">
-                    <label for="project_name">Nom du projet *</label>
+                    <label for="project_name"><?php echo __('project_name'); ?> *</label>
                     <input type="text" id="project_name" name="project_name" 
                            value="<?php echo htmlspecialchars(getSetting('project_name', 'Dashboard Freelance')); ?>" 
-                           placeholder="Nom de votre application" required>
-                    <small>Nom affiché dans le titre et la navigation</small>
+                           placeholder="<?php echo __('project_name'); ?>" required>
+                    <small><?php echo __('project_name'); ?></small>
                 </div>
                 
                 <div class="form-group">
-                    <label>Favicon du projet</label>
+                    <label><?php echo __('project_favicon'); ?></label>
                     <div class="favicon-grid">
                         <?php
                         $favicons = [
@@ -208,11 +241,11 @@ require_once 'includes/header.php';
                             </label>
                         <?php endforeach; ?>
                     </div>
-                    <small>Choisissez un favicon pour votre application</small>
+                    <small><?php echo __('project_favicon'); ?></small>
                 </div>
                 
                 <div class="form-group">
-                    <label for="project_theme_color">Couleur du thème</label>
+                    <label for="project_theme_color"><?php echo __('project_theme_color'); ?></label>
                     <div class="theme-color-picker">
                         <input type="color" id="project_theme_color" name="project_theme_color" 
                                value="<?php echo htmlspecialchars(getSetting('project_theme_color', '#4f46e5')); ?>"
@@ -223,18 +256,18 @@ require_once 'includes/header.php';
                                placeholder="#4f46e5"
                                style="flex: 1; margin-left: 1rem;">
                     </div>
-                    <small>Couleur principale du thème de votre application (utilisée pour les boutons, liens, etc.)</small>
+                    <small><?php echo __('project_theme_color'); ?></small>
                 </div>
                 
                 <div class="form-group">
-                    <label for="project_language">Langue de l'application</label>
+                    <label for="project_language"><?php echo __('project_language'); ?></label>
                     <select id="project_language" name="project_language" required>
                         <?php
                         $languages = [
-                            'fr' => 'Français',
-                            'en' => 'English',
-                            'es' => 'Español',
-                            'de' => 'Deutsch'
+                            'fr' => __('language_french'),
+                            'en' => __('language_english'),
+                            'es' => __('language_spanish'),
+                            'de' => __('language_german')
                         ];
                         $current_lang = getSetting('project_language', 'fr');
                         foreach ($languages as $code => $name):
@@ -244,7 +277,7 @@ require_once 'includes/header.php';
                             </option>
                         <?php endforeach; ?>
                     </select>
-                    <small>Langue utilisée dans l'interface de l'application</small>
+                    <small><?php echo __('project_language'); ?></small>
                 </div>
                 
                 <div class="form-group">

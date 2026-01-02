@@ -62,16 +62,16 @@ require_once 'includes/header.php';
         <div class="stat-card">
             <div class="stat-icon revenue">€</div>
             <div class="stat-content">
-                <h3>Chiffre d'affaires</h3>
+                <h3><?php echo __('revenue'); ?></h3>
                 <p class="stat-value"><?php echo number_format($total_revenue, 2, ',', ' '); ?> €</p>
-                <p class="stat-label">Total</p>
+                <p class="stat-label"><?php echo __('total'); ?></p>
             </div>
         </div>
 
         <div class="stat-card">
             <div class="stat-icon month">📅</div>
             <div class="stat-content">
-                <h3>CA ce mois</h3>
+                <h3><?php echo __('month_revenue'); ?></h3>
                 <p class="stat-value"><?php echo number_format($month_revenue, 2, ',', ' '); ?> €</p>
                 <p class="stat-label"><?php echo date('F Y'); ?></p>
             </div>
@@ -80,18 +80,18 @@ require_once 'includes/header.php';
         <div class="stat-card">
             <div class="stat-icon clients">👥</div>
             <div class="stat-content">
-                <h3>Clients actifs</h3>
+                <h3><?php echo __('active_clients'); ?></h3>
                 <p class="stat-value"><?php echo $active_clients; ?></p>
-                <p class="stat-label">Sur <?php echo $total_clients; ?> clients</p>
+                <p class="stat-label"><?php echo __('of'); ?> <?php echo $total_clients; ?> <?php echo __('clients'); ?></p>
             </div>
         </div>
 
         <div class="stat-card">
             <div class="stat-icon pending">📋</div>
             <div class="stat-content">
-                <h3>Factures en attente</h3>
+                <h3><?php echo __('pending_invoices'); ?></h3>
                 <p class="stat-value"><?php echo $pending_invoices; ?></p>
-                <p class="stat-label">À traiter</p>
+                <p class="stat-label"><?php echo __('to_process'); ?></p>
             </div>
         </div>
     </div>
@@ -99,25 +99,25 @@ require_once 'includes/header.php';
     <div class="dashboard-grid">
         <div class="dashboard-section">
             <div class="section-header">
-                <h2>Dernières factures</h2>
-                <a href="invoices.php" class="btn btn-secondary btn-sm">Voir tout</a>
+                <h2><?php echo __('recent_invoices'); ?></h2>
+                <a href="invoices.php" class="btn btn-secondary btn-sm"><?php echo __('see_all'); ?></a>
             </div>
             <div class="table-container">
                 <table class="data-table">
                     <thead>
                         <tr>
-                            <th>Numéro</th>
-                            <th>Client</th>
-                            <th>Montant</th>
-                            <th>Statut</th>
-                            <th>Date</th>
-                            <th>Actions</th>
+                            <th><?php echo __('invoice_number'); ?></th>
+                            <th><?php echo __('client'); ?></th>
+                            <th><?php echo __('amount'); ?></th>
+                            <th><?php echo __('status'); ?></th>
+                            <th><?php echo __('date'); ?></th>
+                            <th><?php echo __('actions'); ?></th>
                         </tr>
                     </thead>
                     <tbody>
                         <?php if (empty($recent_invoices)): ?>
                             <tr>
-                                <td colspan="6" class="text-center">Aucune facture</td>
+                                <td colspan="6" class="text-center"><?php echo __('no_invoices'); ?></td>
                             </tr>
                         <?php else: ?>
                             <?php foreach ($recent_invoices as $invoice): ?>
@@ -125,10 +125,10 @@ require_once 'includes/header.php';
                                     <td><?php echo htmlspecialchars($invoice['invoice_number']); ?></td>
                                     <td><?php echo htmlspecialchars($invoice['client_name'] ?? 'N/A'); ?></td>
                                     <td><?php echo number_format($invoice['total_amount'], 2, ',', ' '); ?> €</td>
-                                    <td><span class="badge badge-<?php echo $invoice['status']; ?>"><?php echo ucfirst($invoice['status']); ?></span></td>
+                                    <td><span class="badge badge-<?php echo $invoice['status']; ?>"><?php echo __('' . $invoice['status']); ?></span></td>
                                     <td><?php echo date('d/m/Y', strtotime($invoice['issue_date'])); ?></td>
                                     <td>
-                                        <a href="invoice.php?id=<?php echo $invoice['id']; ?>" class="btn btn-sm btn-primary">Voir</a>
+                                        <a href="invoice.php?id=<?php echo $invoice['id']; ?>" class="btn btn-sm btn-primary"><?php echo __('view'); ?></a>
                                     </td>
                                 </tr>
                             <?php endforeach; ?>
@@ -140,7 +140,7 @@ require_once 'includes/header.php';
 
         <div class="dashboard-section">
             <div class="section-header">
-                <h2>Revenus mensuels</h2>
+                <h2><?php echo __('monthly_revenue'); ?></h2>
             </div>
             <div class="chart-container">
                 <canvas id="revenueChart"></canvas>
