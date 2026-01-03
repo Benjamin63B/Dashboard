@@ -55,7 +55,30 @@ require_once 'includes/header.php';
 <main class="dashboard-main">
     <div class="dashboard-header">
         <h1><?php echo __('dashboard'); ?></h1>
-        <p class="welcome-text"><?php echo __('welcome'); ?>, <?php echo htmlspecialchars($user['username']); ?> !</p>
+        <div style="display: flex; align-items: center; gap: 1rem; flex-wrap: wrap;">
+            <p class="welcome-text" style="margin: 0;"><?php echo __('welcome'); ?>, <?php echo htmlspecialchars($user['username']); ?> !</p>
+            <form method="GET" action="index.php" style="display: inline-block; margin: 0;" id="langForm">
+                <?php
+                // Préserver les autres paramètres GET
+                foreach ($_GET as $key => $value) {
+                    if ($key !== 'lang') {
+                        echo '<input type="hidden" name="' . htmlspecialchars($key) . '" value="' . htmlspecialchars($value) . '">';
+                    }
+                }
+                ?>
+                <select name="lang" id="langSelect" onchange="this.form.submit()" style="padding: 0.5rem; border: 1px solid var(--border-color); border-radius: var(--radius); background: var(--bg-color); color: var(--text-color); cursor: pointer;">
+                    <?php
+                    $languages = getAvailableLanguages();
+                    $current_lang = getCurrentLanguage();
+                    foreach ($languages as $code => $name):
+                    ?>
+                        <option value="<?php echo $code; ?>" <?php echo $current_lang === $code ? 'selected' : ''; ?>>
+                            <?php echo htmlspecialchars($name); ?>
+                        </option>
+                    <?php endforeach; ?>
+                </select>
+            </form>
+        </div>
     </div>
 
     <div class="stats-grid">

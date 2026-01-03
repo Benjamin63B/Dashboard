@@ -116,29 +116,6 @@ require_once __DIR__ . '/language.php';
                 <li><a href="payments.php" class="nav-link"><?php echo __('payments'); ?></a></li>
                 <li><a href="settings.php" class="nav-link"><?php echo __('settings'); ?></a></li>
                 <li>
-                    <form method="GET" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" style="display: inline-block; margin: 0;" id="langForm">
-                        <?php
-                        // Préserver les autres paramètres GET
-                        foreach ($_GET as $key => $value) {
-                            if ($key !== 'lang') {
-                                echo '<input type="hidden" name="' . htmlspecialchars($key) . '" value="' . htmlspecialchars($value) . '">';
-                            }
-                        }
-                        ?>
-                        <select name="lang" id="langSelect" onchange="this.form.submit()" style="padding: 0.5rem; border: 1px solid var(--border-color); border-radius: var(--radius); background: var(--bg-color); color: var(--text-color); cursor: pointer;">
-                            <?php
-                            $languages = getAvailableLanguages();
-                            $current_lang = getCurrentLanguage();
-                            foreach ($languages as $code => $name):
-                            ?>
-                                <option value="<?php echo $code; ?>" <?php echo $current_lang === $code ? 'selected' : ''; ?>>
-                                    <?php echo htmlspecialchars($name); ?>
-                                </option>
-                            <?php endforeach; ?>
-                        </select>
-                    </form>
-                </li>
-                <li>
                     <div class="nav-user">
                         <span><?php echo htmlspecialchars($user['username']); ?></span>
                         <a href="logout.php" class="btn btn-sm btn-secondary"><?php echo __('logout'); ?></a>
