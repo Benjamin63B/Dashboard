@@ -98,10 +98,7 @@ require_once 'includes/header.php';
 <main class="dashboard-main">
     <div class="dashboard-header">
         <h1>Factures</h1>
-        <div style="display: flex; gap: 10px;">
-            <a href="generate_test_invoices.php?count=10" class="btn btn-secondary" onclick="return confirm('Générer 10 factures aléatoires de test ?');">Générer 10 factures test</a>
-            <button class="btn btn-primary" onclick="openModal('invoiceModal')">+ Créer une facture</button>
-        </div>
+        <button class="btn btn-primary" onclick="openModal('invoiceModal')">+ Créer une facture</button>
     </div>
 
     <?php if ($error): ?>

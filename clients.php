@@ -89,7 +89,6 @@ require_once 'includes/header.php';
     <div class="dashboard-header">
         <h1>Clients</h1>
         <div style="display: flex; gap: 10px;">
-            <a href="generate_test_client.php" class="btn btn-secondary">Générer un client test</a>
             <a href="export_csv.php" class="btn btn-secondary">Exporter en CSV</a>
             <button class="btn btn-primary" onclick="openModal('clientModal')">+ Ajouter un client</button>
         </div>
