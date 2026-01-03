@@ -17,6 +17,26 @@ Un dashboard complet et open source pour gérer vos revenus, factures, clients e
 - 🎨 **Personnalisation complète** : Nom du projet, favicon, couleur du thème
 - 🔒 **Sécurisé** : Authentification et protection des données
 
+## 📸 Images
+
+### Support multi-langues
+
+#### Français
+![Français](docs/images/Français.png)
+*Interface en français*
+
+#### English
+![English](docs/images/English.png)
+*Interface en anglais*
+
+#### Espagnol
+![Espagnol](docs/images/Espagnol.png)
+*Interface en espagnol*
+
+#### Allemand
+![Allemand](docs/images/Allemand.png)
+*Interface en allemand*
+
 ## 📋 Prérequis
 
 - PHP 7.4 ou supérieur
