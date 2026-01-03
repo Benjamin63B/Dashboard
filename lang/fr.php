@@ -126,5 +126,13 @@ return [
     'language_english' => 'English',
     'language_spanish' => 'Español',
     'language_german' => 'Deutsch',
+    
+    // Rappels et rapports
+    'payment_reminders' => 'Rappels de paiement',
+    'reports' => 'Rapports',
+    'export_pdf' => 'Exporter en PDF',
+    'export_csv' => 'Exporter en CSV',
+    'send_reminder' => 'Envoyer un rappel',
+    'send_all_reminders' => 'Envoyer tous les rappels',
 ];
 

@@ -10,8 +10,8 @@ $user = getCurrentUser();
 require_once 'includes/database.php';
 
 $page_title = 'Clients';
-$error = '';
-$success = '';
+$error = $_GET['error'] ?? '';
+$success = $_GET['success'] ?? '';
 
 // Action: Supprimer
 if (isset($_GET['delete']) && is_numeric($_GET['delete'])) {
@@ -88,7 +88,11 @@ require_once 'includes/header.php';
 <main class="dashboard-main">
     <div class="dashboard-header">
         <h1>Clients</h1>
-        <button class="btn btn-primary" onclick="openModal('clientModal')">+ Ajouter un client</button>
+        <div style="display: flex; gap: 10px;">
+            <a href="generate_test_client.php" class="btn btn-secondary">Générer un client test</a>
+            <a href="export_csv.php" class="btn btn-secondary">Exporter en CSV</a>
+            <button class="btn btn-primary" onclick="openModal('clientModal')">+ Ajouter un client</button>
+        </div>
     </div>
 
     <?php if ($error): ?>

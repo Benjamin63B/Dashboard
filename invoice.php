@@ -36,7 +36,7 @@ require_once 'includes/header.php';
             <h1>Facture <?php echo htmlspecialchars($invoice['invoice_number']); ?></h1>
             <div class="invoice-actions">
                 <a href="invoices.php" class="btn btn-secondary">Retour</a>
-                <a href="?id=<?php echo $invoice['id']; ?>&pdf=1" class="btn btn-primary" target="_blank">PDF</a>
+                <a href="export_pdf.php?id=<?php echo $invoice['id']; ?>" class="btn btn-primary" target="_blank">Exporter en PDF</a>
                 <a href="invoices.php?edit=<?php echo $invoice['id']; ?>" class="btn btn-primary">Modifier</a>
             </div>
         </div>

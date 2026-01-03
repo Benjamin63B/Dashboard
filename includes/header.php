@@ -114,6 +114,8 @@ require_once __DIR__ . '/language.php';
                 <li><a href="clients.php" class="nav-link"><?php echo __('clients'); ?></a></li>
                 <li><a href="invoices.php" class="nav-link"><?php echo __('invoices'); ?></a></li>
                 <li><a href="payments.php" class="nav-link"><?php echo __('payments'); ?></a></li>
+                <li><a href="reminders.php" class="nav-link">Rappels</a></li>
+                <li><a href="reports.php" class="nav-link">Rapports</a></li>
                 <li><a href="settings.php" class="nav-link"><?php echo __('settings'); ?></a></li>
                 <li>
                     <div class="nav-user">

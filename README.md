@@ -307,7 +307,6 @@ Pour toute question ou problème, ouvrez une issue sur GitHub.
 - [README.md](README.md) - Documentation principale
 - [CONTRIBUTING.md](CONTRIBUTING.md) - Guide pour les contributeurs
 - [CHANGELOG.md](CHANGELOG.md) - Historique des modifications
-- [QUICK_START.md](QUICK_START.md) - Guide de démarrage rapide pour GitHub
 
 ---
 

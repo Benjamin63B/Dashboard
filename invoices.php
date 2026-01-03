@@ -10,8 +10,8 @@ $user = getCurrentUser();
 require_once 'includes/database.php';
 
 $page_title = 'Factures';
-$error = '';
-$success = '';
+$error = $_GET['error'] ?? '';
+$success = $_GET['success'] ?? '';
 
 // Action: Supprimer
 if (isset($_GET['delete']) && is_numeric($_GET['delete'])) {
@@ -98,7 +98,10 @@ require_once 'includes/header.php';
 <main class="dashboard-main">
     <div class="dashboard-header">
         <h1>Factures</h1>
-        <button class="btn btn-primary" onclick="openModal('invoiceModal')">+ Créer une facture</button>
+        <div style="display: flex; gap: 10px;">
+            <a href="generate_test_invoices.php?count=10" class="btn btn-secondary" onclick="return confirm('Générer 10 factures aléatoires de test ?');">Générer 10 factures test</a>
+            <button class="btn btn-primary" onclick="openModal('invoiceModal')">+ Créer une facture</button>
+        </div>
     </div>
 
     <?php if ($error): ?>
